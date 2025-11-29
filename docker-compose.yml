@@ -1,0 +1,22 @@
+# ==============================================================================
+# 项目级 Docker Compose 配置文件
+# ==============================================================================
+# 说明：
+#   此文件用于覆盖基础配置中的特定设置（如挂载目录、工作目录等）
+#   适合项目特定的开发需求
+# ==============================================================================
+
+services:
+  # 覆盖 my-dev-env 中的配置
+  # 注意：使用 ${PROJECT_ROOT}/samples 确保路径始终指向项目根目录的 samples
+  # PROJECT_ROOT 环境变量由 docker-compose.sh 脚本设置
+  dl-dev-cuda11.8-cudnn8-pytorch1.13.1-ubuntu22.04:
+    volumes:
+      - ${PROJECT_ROOT}/samples:/workspace/samples
+    working_dir: /workspace/samples
+    container_name: dl_dev_cuda11.8
+  # 如果有其他镜像，可以在这里添加对应的覆盖配置
+  # dl-dev-cuda12.1:
+  #   volumes:
+  #     - ${PROJECT_ROOT}/samples:/workspace/samples
+  #   working_dir: /workspace/samples
