@@ -5,7 +5,7 @@
 ## 1 克隆仓库
 
 ```bash
-git clone --recurse-submodules https://github.com/RocShi/deep-learner.git && cd deep-learner
+git clone --depth=1 --recurse-submodules --shallow-submodules https://github.com/RocShi/deep-learner.git && cd deep-learner
 ```
 
 ## 2 配置基础环境
